@@ -99,7 +99,7 @@ namespace antivirusProject
 
         private void ScanComplete()
         {
-            string textFromFile = File.ReadAllText("print.txt");
+            string textFromFile = File.ReadAllText(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\AntivirusProgrami" + "\\print.txt");
             richTextBox1.Text = textFromFile;
             notifyIcon.Visible = true;
             notifyIcon.ShowBalloonTip(1000, "Tarama Tamamlandı", "Tarama işlemi başarıyla tamamlandı", ToolTipIcon.Info);

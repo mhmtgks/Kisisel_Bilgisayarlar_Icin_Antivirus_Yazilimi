@@ -16,7 +16,6 @@ namespace antivirusProject
 	internal void Main(scanTypes type) // tam tarama ve hızlı tarama için constructer
 		{
             signatureAntivirus f = new signatureAntivirus();
-            f.SetMalwareDatas();
             if (type == Antivirus.scanTypes.FAST) {//hızlı tarama için
 
               //  f.RunScan(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments));
@@ -34,9 +33,7 @@ namespace antivirusProject
 		}
         internal void Main(string path) // dosya taraması için constructer
         {
-            signatureAntivirus f = new signatureAntivirus();
-            f.SetMalwareDatas();
-			
+            signatureAntivirus f = new signatureAntivirus();			
             f.RunScan(path);
         }
     }
@@ -110,7 +107,7 @@ namespace antivirusProject
 
 		public void WriteTxt(string content)   // tarama sonuçlarının txt ye yazdırılması
 		{
-			string fileName = "print.txt";
+			string fileName = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\AntivirusProgrami"+"\\print.txt";
 			using (StreamWriter file = new StreamWriter(fileName, true))
 			{
 				file.WriteLine(content);
@@ -238,7 +235,7 @@ namespace antivirusProject
 
 		public void WriteMalwareData()  // ileride heuristik için imza tabanlı veri setine ekleme yapılmak istenirse eklenebilecek fonksiyon
 		{
-			string fileName = "MALWARES.txt";
+			string fileName = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\AntivirusProgrami" + "\\MALWARES.txt";
 			UpdateMF();
 			using (StreamWriter file = new StreamWriter(fileName, true))
 			{
@@ -251,7 +248,7 @@ namespace antivirusProject
 
 		public void SetMalwareDatas()  // Tarama işlemi için veritabanından okuma yapıp sistemi imza veri setini uygulamaya çekme işlemi
 		{
-			string databasePath = @"HashDB"; // SQLite veritabanı dosyasının yolu
+			string databasePath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\AntivirusProgrami"+"\\HashDB"; // SQLite veritabanı dosyasının yolu
 
 			string connectionString = $"Data Source={databasePath};";
 
