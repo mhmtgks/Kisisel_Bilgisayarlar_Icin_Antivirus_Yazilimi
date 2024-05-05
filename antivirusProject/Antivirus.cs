@@ -121,15 +121,16 @@ namespace antivirusProject
 				int count = MalwareFiles.Count;
 				string dateFormat = "yyyy/MM/dd HH:mm:ss";
 				DateTime date = DateTime.Now;
-				string content = "Last Scan Date: " + date.ToString(dateFormat) + "\nFOUND MALWARE(s) COUNT:" + count.ToString();
-				WriteTxt(content);
+				string content;
 				foreach (FileFormat malwareFile in MalwareFiles)
 				{
 					DeleteFile(malwareFile.FName);
 					content = " **REMOVED! " + " Path: " + malwareFile.FName;
 					WriteTxt(content);
 				}
-			}
+                content = "Last Scan Date: " + date.ToString(dateFormat) + "\tFOUND MALWARE(s) COUNT:" + count.ToString();
+                WriteTxt(content);
+            }
 			else
 			{
 				string dateFormat = "yyyy/MM/dd HH:mm:ss";

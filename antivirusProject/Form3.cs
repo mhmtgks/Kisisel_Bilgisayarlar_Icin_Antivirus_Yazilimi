@@ -22,6 +22,8 @@ namespace antivirusProject
             notifyIcon = new NotifyIcon();
             notifyIcon.Icon = SystemIcons.Information;
             notifyIcon.Visible = false;
+            groupBox2.Hide();
+            groupBox1.Show();
         }
 
 
@@ -31,7 +33,7 @@ namespace antivirusProject
             Application.Exit();
         }
 
-        private void Form2_Load(object sender, EventArgs e)
+        private void Form_Load(object sender, EventArgs e)
         {
 
         }
@@ -58,14 +60,13 @@ namespace antivirusProject
             tarama.Main(Antivirus.scanTypes.FAST);
 
             ScanComplete();
-           
+
         }
 
         private void button6_Click(object sender, EventArgs e) // tam tarama
         {
             Antivirus tarama = new Antivirus();
             tarama.Main(Antivirus.scanTypes.FULL);
-
             ScanComplete();
         }
 
@@ -105,6 +106,60 @@ namespace antivirusProject
             notifyIcon.ShowBalloonTip(1000, "Tarama Tamamlandı", "Tarama işlemi başarıyla tamamlandı", ToolTipIcon.Info);
             notifyIcon.Visible = false;
 
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            groupBox1.Hide();
+            groupBox2.Show();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            groupBox2.Hide();
+            groupBox1.Show();
+
+        }
+
+        private void CheckAndHighlight(string keyword, Color highlightColor)
+        {
+            int startIndex = 0;
+            while (startIndex < richTextBox1.TextLength)
+            {
+                int wordStartIndex = richTextBox1.Find(keyword, startIndex, RichTextBoxFinds.None);
+                if (wordStartIndex != -1)
+                {
+                    int lineIndex = richTextBox1.GetLineFromCharIndex(wordStartIndex);
+                    int lineStartIndex = richTextBox1.GetFirstCharIndexFromLine(lineIndex);
+                    int lineEndIndex = richTextBox1.GetFirstCharIndexFromLine(lineIndex + 1);
+                    if (lineEndIndex == -1)
+                        lineEndIndex = richTextBox1.TextLength;
+                    richTextBox1.Select(lineStartIndex, lineEndIndex - lineStartIndex);
+                    richTextBox1.SelectionColor = highlightColor;
+                    startIndex = lineEndIndex + 1;
+                }
+                else
+                {
+                    break;
+                }
+            }
+        }
+
+        private void richTextBox1_TextChanged_1(object sender, EventArgs e)
+        {
+            // Her metin değiştiğinde, belirli bir kelimeyi kontrol edip renklendiriyoruz.
+            CheckAndHighlight("SAFE", Color.Green);
+            CheckAndHighlight("REMOVED", Color.Red);
+            CheckAndHighlight("FOUND", Color.Red);
+
+        }
+
+        private void Form3_Load(object sender, EventArgs e)
+        {
+            string textFromFile = File.ReadAllText(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\AntivirusProgrami" + "\\print.txt");
+            richTextBox1.Text = textFromFile;
+            CheckAndHighlight("SAFE", Color.Green);
+            CheckAndHighlight("REMOVED", Color.Red);
         }
     }
 }
