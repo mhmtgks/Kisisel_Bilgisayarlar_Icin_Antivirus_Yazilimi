@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             button1 = new Button();
             backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             panelMenu = new Panel();
@@ -36,17 +37,28 @@
             button2 = new Button();
             panel1 = new Panel();
             label1 = new Label();
+            groupBox2 = new GroupBox();
+            label3 = new Label();
+            pictureBox1 = new PictureBox();
             richTextBox1 = new RichTextBox();
             button5 = new Button();
             button6 = new Button();
             button7 = new Button();
             button8 = new Button();
             groupBox1 = new GroupBox();
-            groupBox2 = new GroupBox();
+            label2 = new Label();
+            backgroundWorker2 = new System.ComponentModel.BackgroundWorker();
+            groupBox3 = new GroupBox();
+            button10 = new Button();
+            button9 = new Button();
+            dataGridView1 = new DataGridView();
             panelMenu.SuspendLayout();
             panel1.SuspendLayout();
-            groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            groupBox1.SuspendLayout();
+            groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
             // button1
@@ -101,6 +113,7 @@
             button3.TabIndex = 2;
             button3.Text = "Karantina";
             button3.UseVisualStyleBackColor = true;
+            button3.Click += button3_Click;
             // 
             // button2
             // 
@@ -135,6 +148,35 @@
             label1.Size = new Size(128, 17);
             label1.TabIndex = 0;
             label1.Text = "OxMSEC Technology";
+            // 
+            // groupBox2
+            // 
+            groupBox2.Controls.Add(label3);
+            groupBox2.Controls.Add(pictureBox1);
+            groupBox2.Controls.Add(richTextBox1);
+            groupBox2.Location = new Point(219, 62);
+            groupBox2.Name = "groupBox2";
+            groupBox2.Size = new Size(985, 617);
+            groupBox2.TabIndex = 11;
+            groupBox2.TabStop = false;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new Font("Segoe UI", 19.6981125F, FontStyle.Regular, GraphicsUnit.Point);
+            label3.Location = new Point(380, 62);
+            label3.Name = "label3";
+            label3.Size = new Size(0, 40);
+            label3.TabIndex = 9;
+            label3.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.Location = new Point(56, 24);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(271, 169);
+            pictureBox1.TabIndex = 8;
+            pictureBox1.TabStop = false;
             // 
             // richTextBox1
             // 
@@ -188,32 +230,81 @@
             // 
             // groupBox1
             // 
+            groupBox1.Controls.Add(label2);
             groupBox1.Controls.Add(button8);
             groupBox1.Controls.Add(button5);
             groupBox1.Controls.Add(button7);
             groupBox1.Controls.Add(button6);
-            groupBox1.Location = new Point(219, 45);
+            groupBox1.Location = new Point(222, 62);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(985, 623);
+            groupBox1.Size = new Size(985, 604);
             groupBox1.TabIndex = 11;
             groupBox1.TabStop = false;
             // 
-            // groupBox2
+            // label2
             // 
-            groupBox2.Controls.Add(richTextBox1);
-            groupBox2.Location = new Point(219, 45);
-            groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(985, 617);
-            groupBox2.TabIndex = 11;
-            groupBox2.TabStop = false;
+            label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI", 23.7735844F, FontStyle.Regular, GraphicsUnit.Point);
+            label2.Location = new Point(231, 257);
+            label2.Name = "label2";
+            label2.Size = new Size(0, 47);
+            label2.TabIndex = 11;
+            label2.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // groupBox3
+            // 
+            groupBox3.Controls.Add(button10);
+            groupBox3.Controls.Add(button9);
+            groupBox3.Controls.Add(dataGridView1);
+            groupBox3.Location = new Point(219, 46);
+            groupBox3.Name = "groupBox3";
+            groupBox3.Size = new Size(980, 677);
+            groupBox3.TabIndex = 1;
+            groupBox3.TabStop = false;
+            // 
+            // button10
+            // 
+            button10.Location = new Point(395, 62);
+            button10.Name = "button10";
+            button10.Size = new Size(374, 63);
+            button10.TabIndex = 2;
+            button10.Text = "Görmezden Gel";
+            button10.UseVisualStyleBackColor = true;
+            button10.Click += button10_Click;
+            // 
+            // button9
+            // 
+            button9.Location = new Point(46, 62);
+            button9.Name = "button9";
+            button9.Size = new Size(326, 63);
+            button9.TabIndex = 1;
+            button9.Text = "Seçilenleri Sil";
+            button9.UseVisualStyleBackColor = true;
+            button9.Click += button9_Click;
+            // 
+            // dataGridView1
+            // 
+            dataGridView1.AllowUserToAddRows = false;
+            dataGridView1.AllowUserToDeleteRows = false;
+            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView1.Location = new Point(46, 151);
+            dataGridView1.Name = "dataGridView1";
+            dataGridView1.ReadOnly = true;
+            dataGridView1.RowHeadersWidth = 23;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.TopCenter;
+            dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridView1.RowTemplate.Height = 27;
+            dataGridView1.Size = new Size(723, 460);
+            dataGridView1.TabIndex = 0;
             // 
             // Form3
             // 
             AutoScaleDimensions = new SizeF(7F, 17F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1207, 726);
-            Controls.Add(groupBox1);
+            Controls.Add(groupBox3);
             Controls.Add(groupBox2);
+            Controls.Add(groupBox1);
             Controls.Add(panelMenu);
             Controls.Add(panel1);
             Name = "Form3";
@@ -222,8 +313,13 @@
             panelMenu.ResumeLayout(false);
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
-            groupBox1.ResumeLayout(false);
             groupBox2.ResumeLayout(false);
+            groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            groupBox1.ResumeLayout(false);
+            groupBox1.PerformLayout();
+            groupBox3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
         }
 
@@ -244,5 +340,13 @@
         private Button button8;
         private GroupBox groupBox1;
         private GroupBox groupBox2;
+        private Label label2;
+        private PictureBox pictureBox1;
+        private Label label3;
+        private System.ComponentModel.BackgroundWorker backgroundWorker2;
+        private GroupBox groupBox3;
+        private Button button10;
+        private Button button9;
+        private DataGridView dataGridView1;
     }
 }
