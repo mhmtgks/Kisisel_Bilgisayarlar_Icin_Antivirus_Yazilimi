@@ -1,5 +1,7 @@
 Uygulamayı Kurmak İçin :
+
 Kurmadan önce ZIP içindeki README dosyasını okuyun
+
 Uygulamanın Anlatıldığı Tez : https://drive.google.com/file/d/1yULii6PrhyT71jqcgLlA-Df1uTB5hHoY/view?usp=sharing
 
 
