@@ -1,4 +1,4 @@
-Uygulamayı Kurmak İçin :
+Uygulamanın kendisi .exe  : https://drive.google.com/file/d/1Fu7erDWRRPhmJXgp-F9AQDCT-y0vxl3r/view?usp=sharing
 
 Kurmadan önce ZIP içindeki README dosyasını okuyun
 
